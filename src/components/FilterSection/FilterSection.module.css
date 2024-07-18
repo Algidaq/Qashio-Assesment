@@ -1,0 +1,145 @@
+.wrapper {
+  padding: 25px 30px;
+}
+
+.filterWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.icon {
+  color: #778599;
+  font-size: 1.5rem;
+  margin-top: 0px;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #e8e8e8;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 1.5rem;
+}
+
+.searchInput,
+.dateInpute {
+  border: unset;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #778599;
+}
+
+.dateWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+}
+
+.iconDollar {
+  font-size: 1.75rem;
+  color: #778599;
+}
+
+.dollarIcon {
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.35s;
+}
+
+.dollarIcon:hover {
+  transform: translateY(-5px);
+}
+
+.downloadButton .icon {
+  color: #378465;
+  transition: 0.35s;
+}
+
+.downloadButton {
+  padding: 15px 30px;
+  border: 1px solid #378465;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+.downloadButton:hover .icon {
+  animation: downloadButton 0.5s infinite;
+}
+
+.cardsWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.singleCard {
+  padding: 1.5rem;
+  background-color: #f6f6f4;
+  border-radius: 18px;
+  width: 17.5rem;
+  height: 10rem;
+  transition: 0.35s;
+  cursor: pointer;
+}
+
+.singleCard:hover {
+  transform: translateY(-10px);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.cardAmount,
+.cardAmountRed {
+  font-size: 3rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardAmountRed {
+  color: #df473e;
+}
+
+.cardIconStyle {
+  color: #919bab;
+  font-size: 2rem;
+}
+
+@keyframes downloadButton {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

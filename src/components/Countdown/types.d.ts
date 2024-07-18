@@ -3,6 +3,6 @@ export interface CountdownProps {
   countdown: number;
   speed: number;
   step?: number;
-  preText?: string;
-  postText?: string;
+  preText?: string | React.ReactNode;
+  postText?: string | React.ReactNode;
 }

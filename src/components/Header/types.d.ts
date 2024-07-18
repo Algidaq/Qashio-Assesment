@@ -1,6 +1,5 @@
-export interface HeaderPropsTypes{
-  title:string , 
-  currentBalance:number , 
-  availableBalance:number , 
-  maxBalance:number
+export interface HeaderPropsTypes {
+  currentBalance: number;
+  availableBalance: number;
+  maxBalance: string;
 }

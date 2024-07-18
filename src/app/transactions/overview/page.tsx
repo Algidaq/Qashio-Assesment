@@ -1,14 +1,21 @@
-import React from 'react'
+import React from "react";
 
 // Components
-import Header from '@/components/Header/Header'
+import Header from "@/components/Header/Header";
+import FilterSection from "@/components/FilterSection/FilterSection";
 
 const Overview = () => {
   return (
     <>
-      <Header />
-    </>
-  )
-}
+      <Header
+        currentBalance={628432.9}
+        availableBalance={1371568.1}
+        maxBalance={"30%"}
+      />
 
-export default Overview
+      <FilterSection />
+    </>
+  );
+};
+
+export default Overview;

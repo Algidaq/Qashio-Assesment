@@ -87,6 +87,10 @@ ul {
   list-style: none;
   padding: 0;
 }
+textarea:focus,
+input:focus {
+  outline: none;
+}
 
 .bodyMainWrapper {
   display: flex;

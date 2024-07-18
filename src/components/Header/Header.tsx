@@ -9,7 +9,6 @@ import styles from "./Header.module.css";
 import Countdown from "../Countdown/Countdown";
 
 const Header: React.FC<HeaderPropsTypes> = ({
-  title,
   currentBalance,
   availableBalance,
   maxBalance,
@@ -23,7 +22,7 @@ const Header: React.FC<HeaderPropsTypes> = ({
             <p className={styles.subTitle}>Current Balance</p>
             <Countdown
               className={styles.amout}
-              countdown={628432.9}
+              countdown={currentBalance}
               speed={1}
               step={5000}
               preText="$"
@@ -34,7 +33,7 @@ const Header: React.FC<HeaderPropsTypes> = ({
             <p className={styles.subTitle}>Available Balance</p>
             <Countdown
               className={styles.amout}
-              countdown={1371568.1}
+              countdown={availableBalance}
               speed={1}
               step={10000}
               preText="$"
@@ -44,7 +43,7 @@ const Header: React.FC<HeaderPropsTypes> = ({
           </div>
         </div>
         <div className={styles.progressbarWrapper}>
-          <div className={styles.progressbar} style={{ width: "30%" }} />
+          <div className={styles.progressbar} style={{ width: maxBalance }} />
         </div>
 
         <div className={styles.infoWrappr}>
