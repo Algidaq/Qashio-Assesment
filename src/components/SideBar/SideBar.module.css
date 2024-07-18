@@ -1,5 +1,5 @@
 .wrapper{
-    width:16.688rem;
+    width:400px;
     height: calc(100dvh - 17px);
     background-color: #F6F6F4;
     margin-top: 17px;
@@ -42,6 +42,8 @@
     align-items: center;
     gap: 1.5rem;
     cursor: pointer;
+    transition: all 0.35s;
+
 }
 
 .subPageLink{
@@ -54,10 +56,12 @@
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.35s;
+    animation: showSubLinks 1s;
 }
 
 .subPageLink:hover{
     color: #000;
+    transform: translateX(5px);
 }
 
 .iconStyle{
@@ -75,5 +79,13 @@
     border-radius: 50px;
     padding:  12px 20px;
     color: #000;
+}
 
+@keyframes showSubLinks {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

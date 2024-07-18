@@ -90,7 +90,19 @@ ul {
 
 .bodyMainWrapper{
   display: flex;
+  align-items: flex-start;
+  justify-self: center;
   gap: 2rem;
+}
+
+.childrenMainWrapper{
+  width: 100%;
+  height: calc(100dvh - 17px);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 24px 0px 0px 0;
+  margin-top: 17px;
+  padding: 25px 30px;
+
 }
 
 @media screen and (max-width: 768px) {

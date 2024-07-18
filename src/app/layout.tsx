@@ -19,7 +19,9 @@ export default function RootLayout({
       <body>
         <div className="bodyMainWrapper">
           <SideBar />
+          <div className="childrenMainWrapper">
             {children}
+          </div>
         </div>
         </body>
     </html>
