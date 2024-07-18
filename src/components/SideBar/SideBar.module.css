@@ -59,9 +59,8 @@
     animation: showSubLinks 1s;
 }
 
-.subPageLink:hover{
+.subPageLink:hover {
     color: #000;
-    transform: translateX(5px);
 }
 
 .iconStyle{
