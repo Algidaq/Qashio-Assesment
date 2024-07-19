@@ -150,97 +150,101 @@ const CustomTable: React.FC<CustomTableProps> = ({ data }) => {
   };
 
   return (
-    <div className={styles.tableWrapper}>
-      <table {...getTableProps()} className={styles.table}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()} key={column.id}>
-                  {column.render("Header")}
-                </th>
+    <div className={styles.wrapper}>
+      <div className={styles.tableWrapper}>
+        <div className={styles.tableContainer}>
+          <table {...getTableProps()} className={styles.table}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()} key={column.id}>
+                      {column.render("Header")}
+                    </th>
+                  ))}
+                </tr>
               ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row, index) => {
-            prepareRow(row);
-            return (
-              <tr key={index.toString()} {...row.getRowProps()}>
-                {row.cells.map((cell, index) => (
-                  <td
-                    key={index.toString()}
-                    {...cell.getCellProps()}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {page.map((row, index) => {
+                prepareRow(row);
+                return (
+                  <tr key={index.toString()} {...row.getRowProps()}>
+                    {row.cells.map((cell, index) => (
+                      <td
+                        key={index.toString()}
+                        {...cell.getCellProps()}
 
-                    // style={{
-                    //   padding: "10px",
-                    //   border: "solid 1px gray",
-                    //   background: "papayawhip",
-                    // }}
-                  >
-                    {cell.render("Cell")}
-                  </td>
-                ))}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div>
-        <div className={styles.tableFooterWrapper}>
-          <div className={styles.showWrapper}>
-            <p>Show:</p>
-            <select
-              value={pageSize}
-              onChange={(e) => {
-                setPageSize(Number(e.target.value));
-              }}
-              className={styles.selectStyle}
-            >
-              {[5, 10, 20].map((pageSizeOption) => (
-                <option key={pageSizeOption} value={pageSizeOption}>
-                  {pageSizeOption}
-                </option>
-              ))}
-            </select>
-            <span className={styles.perPageWrapper}>
-              Page{" "}
-              <span>
-                {pageIndex + 1} of {pageOptions.length}
-              </span>{" "}
-            </span>
-          </div>
+                        // style={{
+                        //   padding: "10px",
+                        //   border: "solid 1px gray",
+                        //   background: "papayawhip",
+                        // }}
+                      >
+                        {cell.render("Cell")}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
           <div>
-            <button
-              onClick={() => gotoPage(0)}
-              disabled={!canPreviousPage}
-              className={styles.paginationButton}
-            >
-              {"<<"}
-            </button>
-            <button
-              onClick={() => previousPage()}
-              disabled={!canPreviousPage}
-              className={styles.paginationButton}
-            >
-              {"<"}
-            </button>
-            {renderPageNumbers()}
-            <button
-              onClick={() => nextPage()}
-              disabled={!canNextPage}
-              className={styles.paginationButton}
-            >
-              {">"}
-            </button>
-            <button
-              onClick={() => gotoPage(pageCount - 1)}
-              disabled={!canNextPage}
-              className={styles.paginationButton}
-            >
-              {">>"}
-            </button>
+            <div className={styles.tableFooterWrapper}>
+              <div className={styles.showWrapper}>
+                <p>Show:</p>
+                <select
+                  value={pageSize}
+                  onChange={(e) => {
+                    setPageSize(Number(e.target.value));
+                  }}
+                  className={styles.selectStyle}
+                >
+                  {[5, 10, 20].map((pageSizeOption) => (
+                    <option key={pageSizeOption} value={pageSizeOption}>
+                      {pageSizeOption}
+                    </option>
+                  ))}
+                </select>
+                <span className={styles.perPageWrapper}>
+                  Page{" "}
+                  <span>
+                    {pageIndex + 1} of {pageOptions.length}
+                  </span>{" "}
+                </span>
+              </div>
+              <div>
+                <button
+                  onClick={() => gotoPage(0)}
+                  disabled={!canPreviousPage}
+                  className={styles.paginationButton}
+                >
+                  {"<<"}
+                </button>
+                <button
+                  onClick={() => previousPage()}
+                  disabled={!canPreviousPage}
+                  className={styles.paginationButton}
+                >
+                  {"<"}
+                </button>
+                {renderPageNumbers()}
+                <button
+                  onClick={() => nextPage()}
+                  disabled={!canNextPage}
+                  className={styles.paginationButton}
+                >
+                  {">"}
+                </button>
+                <button
+                  onClick={() => gotoPage(pageCount - 1)}
+                  disabled={!canNextPage}
+                  className={styles.paginationButton}
+                >
+                  {">>"}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

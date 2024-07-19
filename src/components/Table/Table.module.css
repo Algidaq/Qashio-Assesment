@@ -1,5 +1,17 @@
+.wrapper {
+  width: 100%;
+  overflow: scroll;
+}
+
 .tableWrapper {
+  width: 1100px;
   padding-inline: 30px;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .table {
@@ -11,12 +23,13 @@
   border-bottom: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-  overflow: hidden;
 }
+
 .table thead {
   background-color: #f6f6f4;
   padding: 1.75rem;
 }
+
 .table thead tr th {
   padding-inline-start: 1.75rem;
   height: 4.25rem;
