@@ -132,6 +132,39 @@
   font-size: 2rem;
 }
 
+@media screen and (max-width: 800px) {
+  .filters {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .filterWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dateWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+
+  .searchInput,
+  .dateInpute {
+    width: 100%;
+  }
+}
+
 @keyframes downloadButton {
   0% {
     transform: translateY(0px);
