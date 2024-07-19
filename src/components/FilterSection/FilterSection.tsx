@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
 // Components
 import Countdown from "../Countdown/Countdown";
@@ -16,8 +17,11 @@ import { MdOutlineOpenInFull } from "react-icons/md";
 
 // styles
 import styles from "./FilterSection.module.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 const FilterSection = () => {
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+
   const arrayCard: CardProps[] = [
     {
       CardTitle: "Transactoins",
@@ -52,9 +56,18 @@ const FilterSection = () => {
             />
           </div>
           <div className={styles.dateWrapper}>
-            <div className={styles.searchWrapper}>
-              <MdOutlineDateRange className={styles.icon} />
-              <p className={styles.dateInpute}>Jun 01 , 2023 - Jun 30 , 2023</p>
+            <div className={styles.datePickerWrapper}>
+              <div className={styles.datePikcerleftSide}>
+                <MdOutlineDateRange className={styles.icon} />
+                <DatePicker
+                  selected={startDate}
+                  showTimeSelect
+                  dateFormat="Pp"
+                  onChange={(date) => setStartDate(date)}
+                  className={styles.dateInpute}
+                  dropdownMode="scroll"
+                />
+              </div>
               <FaAngleDown className={styles.icon} />
             </div>
             <div className={styles.dollarIcon}>

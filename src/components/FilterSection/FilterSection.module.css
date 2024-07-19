@@ -21,23 +21,39 @@
   margin-top: 0px;
 }
 
-.searchWrapper {
+.searchWrapper,
+.datePickerWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-start;
+  gap: 20px;
   border: 1px solid #e8e8e8;
   border-radius: 50px;
   padding: 12px 20px;
   font-size: 1.5rem;
+  min-width: 20rem;
+}
+
+.datePickerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.datePikcerleftSide {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .searchInput,
 .dateInpute {
   border: unset;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 300;
   color: #778599;
+  height: 32px;
 }
 
 .dateWrapper {
@@ -48,13 +64,13 @@
 }
 
 .iconDollar {
-  font-size: 1.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
   color: #778599;
 }
 
 .dollarIcon {
-  width: 3.75rem;
-  height: 3.75rem;
+  padding: 1rem;
   border: 1px solid #e8e8e8;
   border-radius: 50px;
   display: flex;
@@ -64,7 +80,8 @@
 }
 
 .dollarIcon:hover {
-  transform: translateY(-5px);
+  border: 1px solid #37846527;
+  background-color: #37846527;
 }
 
 .downloadButton .icon {
@@ -132,7 +149,7 @@
   font-size: 2rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1270px) {
   .filters {
     align-items: flex-start;
     flex-direction: column;
@@ -140,28 +157,44 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
+  .filters {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 570px) {
   .filterWrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .dateWrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .searchWrapper {
     width: 100%;
   }
 
+  .downloadButton,
+  .searchWrapper,
+  .dateWrapper,
   .searchInput,
   .dateInpute {
     width: 100%;
+  }
+
+  .dateWrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .dollarIcon {
+    width: 100%;
+  }
+
+  .cardsWrapper {
+    justify-content: center;
   }
 }
 
