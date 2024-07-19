@@ -3,6 +3,10 @@ import React from "react";
 // Components
 import Header from "@/components/Header/Header";
 import FilterSection from "@/components/FilterSection/FilterSection";
+import Table from "@/components/Table/Table";
+
+// Data
+import { TableData } from "@/data/TableData";
 
 const Overview = () => {
   return (
@@ -14,6 +18,8 @@ const Overview = () => {
       />
 
       <FilterSection />
+
+      <Table data={TableData} />
     </>
   );
 };
