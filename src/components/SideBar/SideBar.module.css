@@ -1,90 +1,180 @@
-.wrapper{
-    width:400px;
-    height: calc(100dvh - 17px);
-    background-color: #F6F6F4;
-    margin-top: 17px;
-    border-radius: 0px 24px 0px 0;
-    transition: all 0.35s;
-    padding: 3.125rem;
-    padding-top: 8.5rem;
-    padding-left: 2.313rem;
+.wrapper {
+  width: 400px;
+  height: calc(100dvh - 17px);
+  background-color: #f6f6f4;
+  margin-top: 17px;
+  border-radius: 0px 24px 0px 0;
+  transition: all 0.35s;
+  padding: 3.125rem;
+  padding-top: 8.5rem;
+  padding-left: 2.313rem;
 }
 
-.sidebarWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 100%;
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.linksWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2.125rem;
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.125rem;
 }
 
-.subPages{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1.125rem;
-    
+.subPages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.125rem;
 }
 
 .pageLink {
-    color: #5D5D67;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    cursor: pointer;
-    transition: all 0.35s;
-
+  color: #5d5d67;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  transition: all 0.35s;
 }
 
-.subPageLink{
-    margin-top: 18px;
-    color: #5D5D67;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.35s;
-    animation: showSubLinks 1s;
+.subPageLink {
+  margin-top: 18px;
+  color: #5d5d67;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.35s;
+  animation: showSubLinks 1s;
 }
 
 .subPageLink:hover {
-    color: #000;
+  color: #000;
 }
 
-.iconStyle{
-    width: 1.5rem;
-    height: 100%;
+.iconStyle {
+  width: 1.5rem;
+  height: 100%;
 }
 
-.linkActive{
-    color: #000;
-    font-weight: 700;
+.linkActive {
+  color: #000;
+  font-weight: 700;
 }
 
-.sublinkActive{
-    background-color: #fff;
-    border-radius: 50px;
-    padding:  12px 20px;
-    color: #000;
+.sublinkActive {
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 12px 20px;
+  color: #000;
+}
+
+.navbarWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  padding-inline: 40px;
+  margin: auto;
+  height: 60px;
+  width: 100%;
+  background-color: #f6f6f4;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.navlines,
+.navlinesOpen {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.navlines span,
+.navlinesOpen span {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.navlinesOpen span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navlinesOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.navlinesOpen span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobileNavbarWrapperOpen,
+.mobileNavbarWrapperClose {
+  padding-top: 30px;
+  position: absolute;
+  top: 60px;
+  left: -100%;
+  background-color: #f6f6f4;
+  width: 100%;
+  height: calc(100dvh - 60px);
+  z-index: 111111;
+  transition: 0.35s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes openMenu {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes closeMenu {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+.mobileNavbarWrapperOpen {
+  animation: openMenu 0.35s forwards;
+}
+
+.mobileNavbarWrapperClose {
+  animation: closeMenu 0.35s forwards;
 }
 
 @keyframes showSubLinks {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
