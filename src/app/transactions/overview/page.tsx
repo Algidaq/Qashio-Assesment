@@ -8,13 +8,22 @@ import Table from "@/components/Table/Table";
 // Data
 import { TableData } from "@/data/TableData";
 
+const HeaderData = {
+  currentBalance: 628432.9,
+  availableBalance: 1371568.1,
+  calculateProgressBarPercentage() {
+    return (this.currentBalance / this.availableBalance) * 100 + "%";
+  },
+};
+
 const Overview = () => {
+  // console.log(HeaderData.calculateProgressBarPercentage());
   return (
     <>
       <Header
-        currentBalance={628432.9}
-        availableBalance={1371568.1}
-        maxBalance={"30%"}
+        currentBalance={HeaderData.currentBalance}
+        availableBalance={HeaderData.availableBalance}
+        maxBalance={HeaderData.calculateProgressBarPercentage()}
       />
 
       <FilterSection />

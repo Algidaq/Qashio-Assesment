@@ -75,9 +75,6 @@ const SideBar: React.FC = () => {
     setActivePage(activePage === pageName ? "" : pageName);
   };
 
-  const isActive = (link: string) => {
-    return pathname === link;
-  };
   const { width } = useWindowSize();
 
   return width > 991 ? (
@@ -100,55 +97,50 @@ const _SideBar: React.FC<{
   onPageClick?: (page: string) => void;
   pathname: string;
 }> = ({ activePage, onPageClick, pathname }) => {
+  const [openedLinkGroups, setOpenLinksGroups] = useState<Set<string>>(
+    new Set()
+  );
+
+  const handleOnGroupLinksClicked = (name: string) => {
+    return () => {
+      const exits = openedLinkGroups.has(name.toLowerCase());
+      if (!exits) {
+        const newOpenedLinkedGroups = new Set(openedLinkGroups);
+        newOpenedLinkedGroups.add(name.toLowerCase());
+        setOpenLinksGroups(newOpenedLinkedGroups);
+        return;
+      }
+
+      const newOpenedLinkedGroups = new Set(openedLinkGroups);
+      newOpenedLinkedGroups.delete(name.toLowerCase());
+      setOpenLinksGroups(newOpenedLinkedGroups);
+    };
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.sidebarWrapper}>
         <div className={styles.linksWrapper}>
-          {pages.map((page) => (
-            <div key={page.name}>
-              {page.subPages ? (
-                <>
-                  <div
-                    onClick={() => onPageClick?.(page.name)}
-                    className={`${styles.pageLink} ${
-                      activePage === page.name ? styles.linkActive : ""
-                    }`}
-                  >
-                    {page.icon}
-                    {page.name}
-                  </div>
-                  {activePage === page.name && (
-                    <div className={styles.subPages}>
-                      {page.subPages.map((subPage) => (
-                        <Link href={subPage.link} key={subPage.name}>
-                          <div
-                            className={`${styles.subPageLink} ${
-                              pathname === subPage.link
-                                ? styles.sublinkActive
-                                : ""
-                            }`}
-                          >
-                            {subPage.name}
-                          </div>
-                        </Link>
-                      ))}
+          {pages.map((page) => {
+            return (
+              <div key={page.name}>
+                {page.subPages && page.subPages.length > 0 ? (
+                  <SubPagesLink page={page} />
+                ) : (
+                  <Link href={page.link}>
+                    <div
+                      className={`${styles.pageLink} ${
+                        pathname === page.link ? styles.linkActive : ""
+                      }`}
+                    >
+                      {page.icon}
+                      {page.name}
                     </div>
-                  )}
-                </>
-              ) : (
-                <Link href={page.link}>
-                  <div
-                    className={`${styles.pageLink} ${
-                      pathname === page.link ? styles.linkActive : ""
-                    }`}
-                  >
-                    {page.icon}
-                    {page.name}
-                  </div>
-                </Link>
-              )}
-            </div>
-          ))}
+                  </Link>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className={styles.settingWrapper}>
@@ -163,6 +155,63 @@ const _SideBar: React.FC<{
           </Link>
         </div>
       </div>
+    </div>
+  );
+};
+
+const SubPagesLink: React.FC<{ page: Page; onHideNavbar?: () => void }> = ({
+  page,
+  onHideNavbar,
+}) => {
+  const pathname = usePathname();
+
+  const hasSubPages = page.subPages !== undefined && page.subPages.length > 0;
+
+  const [showSubPages, setShowSubPages] = useState(
+    pathname.includes(page.link)
+  );
+
+  useEffect(() => {
+    setShowSubPages(pathname.includes(page.link));
+  }, [pathname, page.link]);
+
+  const handleOnParentClick = () => {
+    if (!hasSubPages) return;
+    setShowSubPages((prev) => !prev);
+  };
+
+  return (
+    <div key={page.name}>
+      <>
+        <div
+          onClick={handleOnParentClick}
+          className={`${styles.pageLink} ${
+            pathname.includes(page.link) ? styles.linkActive : ""
+          }`}
+        >
+          {page.icon}
+          {page.name}
+        </div>
+        {(pathname.includes(page.link) || showSubPages) && (
+          <div className={styles.subPages}>
+            {page.subPages?.map((subPage) => (
+              <Link
+                href={subPage.link}
+                key={subPage.name}
+                onClick={onHideNavbar}
+              >
+                <div
+                  className={`${styles.subPageLink} ${
+                    pathname === subPage.link ? styles.sublinkActive : ""
+                  }`}
+                >
+                  {subPage.name}
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </>
     </div>
   );
 };
@@ -203,35 +252,10 @@ const _Navbar: React.FC<{
             {pages.map((page) => (
               <div key={page.name}>
                 {page.subPages ? (
-                  <>
-                    <div
-                      onClick={() => onPageClick?.(page.name)}
-                      className={`${styles.pageLink} ${
-                        activePage === page.name ? styles.linkActive : ""
-                      }`}
-                    >
-                      {page.icon}
-                      {page.name}
-                    </div>
-                    {activePage === page.name && (
-                      <div className={styles.subPages}>
-                        {page.subPages.map((subPage) => (
-                          <Link href={subPage.link} key={subPage.name}>
-                            <div
-                              className={`${styles.subPageLink} ${
-                                pathname === subPage.link
-                                  ? styles.sublinkActive
-                                  : ""
-                              }`}
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {subPage.name}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
+                  <SubPagesLink
+                    page={page}
+                    onHideNavbar={() => setIsOpen(false)}
+                  />
                 ) : (
                   <Link href={page.link} onClick={() => setIsOpen(false)}>
                     <div

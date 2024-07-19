@@ -84,7 +84,7 @@
   background-color: #37846527;
 }
 
-.downloadButton .icon {
+.downloadButtonIcon {
   color: #378465;
   transition: 0.35s;
 }
@@ -92,6 +92,7 @@
 .downloadButton {
   padding: 15px 30px;
   border: 1px solid #378465;
+  background: transparent !important;
   border-radius: 50px;
   display: flex;
   align-items: center;

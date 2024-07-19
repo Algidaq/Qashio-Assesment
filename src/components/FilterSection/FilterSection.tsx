@@ -1,12 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
 
 // Components
 import Countdown from "../Countdown/Countdown";
+import DatePicker from "react-datepicker";
+import { exportToExcel } from "react-json-to-excel";
 
 // Types
 import { CardProps } from "./types";
+
+// Data
+import { TableData } from "@/data/TableData";
 
 // Icons
 import { HiOutlineDownload } from "react-icons/hi";
@@ -19,29 +23,29 @@ import { MdOutlineOpenInFull } from "react-icons/md";
 import styles from "./FilterSection.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 
+const arrayCard: CardProps[] = [
+  {
+    CardTitle: "Transactoins",
+    CardIcon: "$",
+    CardClassName: styles.cardAmount,
+    CardAmount: 1563,
+  },
+  {
+    CardTitle: "Total Spend",
+    CardIcon: "$",
+    CardClassName: styles.cardAmount,
+    CardAmount: 1228.9,
+  },
+  {
+    CardTitle: "Missing Receipts",
+    PostCardIcon: <MdOutlineOpenInFull className={styles.cardIconStyle} />,
+    CardClassName: styles.cardAmountRed,
+    CardAmount: 42,
+  },
+];
+
 const FilterSection = () => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
-
-  const arrayCard: CardProps[] = [
-    {
-      CardTitle: "Transactoins",
-      CardIcon: "$",
-      CardClassName: styles.cardAmount,
-      CardAmount: 1563,
-    },
-    {
-      CardTitle: "Total Spend",
-      CardIcon: "$",
-      CardClassName: styles.cardAmount,
-      CardAmount: 1228.9,
-    },
-    {
-      CardTitle: "Missing Receipts",
-      PostCardIcon: <MdOutlineOpenInFull className={styles.cardIconStyle} />,
-      CardClassName: styles.cardAmountRed,
-      CardAmount: 42,
-    },
-  ];
 
   return (
     <div className={styles.wrapper}>
@@ -75,15 +79,14 @@ const FilterSection = () => {
             </div>
           </div>
         </div>
-        <a
-          href="#"
-          download={"#"}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
           className={styles.downloadButton}
+          onClick={() => {
+            exportToExcel(TableData, "table-data");
+          }}
         >
           <HiOutlineDownload className={styles.icon} />
-        </a>
+        </div>
       </div>
       <div className={styles.cardsWrapper}>
         {arrayCard.map((card, index) => (

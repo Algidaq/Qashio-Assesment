@@ -1,10 +1,16 @@
 "use client";
 import React, { useMemo } from "react";
+
+// Components
 import { useTable, Column, usePagination } from "react-table";
+
+// Icons
 import { MdReceipt } from "react-icons/md";
 import { HiOutlineCurrencyDollar, HiOutlineCalendar } from "react-icons/hi";
-import styles from "./Table.module.css";
 import { IoDocumentTextOutline } from "react-icons/io5";
+
+// styles
+import styles from "./Table.module.css";
 
 interface TableData {
   id: number;
