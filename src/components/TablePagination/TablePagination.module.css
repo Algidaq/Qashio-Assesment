@@ -1,7 +1,11 @@
 .showWrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
+}
+
+@media screen and (max-width: 425px) {
 }
 
 .selectStyle {

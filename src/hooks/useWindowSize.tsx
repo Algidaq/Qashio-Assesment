@@ -8,7 +8,7 @@ type WindowSizeType = {
 
 const useWindowSize = (): WindowSizeType => {
   const [windowSize, setWindowSize] = useState<WindowSizeType>({
-    width: window !== undefined ? window.innerWidth : 0,
+    width: typeof window !== "undefined" ? window.innerWidth : 1024,
     height: undefined,
   });
   useEffect(() => {

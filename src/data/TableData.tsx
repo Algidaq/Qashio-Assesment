@@ -1,4 +1,23 @@
-export const TableData = [
+export interface Receipt {
+  id: number;
+  company: {
+    name: string;
+    category: string;
+    logo?: string;
+  };
+  buyer: {
+    name: string;
+  };
+  transaction:
+    | { amount: number; status: "pending" }
+    | {
+        amount: number;
+        date: string;
+        status: "completed";
+      };
+}
+
+export const TableData: Receipt[] = [
   {
     id: 0,
     company: {

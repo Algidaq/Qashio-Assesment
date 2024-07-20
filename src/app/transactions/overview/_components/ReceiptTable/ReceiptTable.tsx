@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 
 // Components
@@ -14,7 +14,8 @@ import { ReceiptListTile } from "../ReceiptListTile";
 import { AppTable, TablePagination } from "@/components";
 
 // Types
-import { CustomTableProps, Receipt } from "./types";
+import type { CustomTableProps } from "./types";
+import type { Receipt } from "@/data/TableData";
 
 // Icons
 import { IoDocumentTextOutline } from "react-icons/io5";
@@ -86,6 +87,9 @@ const CustomTable: React.FC<CustomTableProps> = ({ data }) => {
     getFilteredRowModel: getFilteredRowModel(),
     initialState: {
       pagination: { pageIndex: 0, pageSize: 25 },
+      columnVisibility: {
+        date: false,
+      },
       columnFilters:
         search !== null
           ? [
@@ -114,8 +118,20 @@ const CustomTable: React.FC<CustomTableProps> = ({ data }) => {
     table.setPageSize(size);
     const shouldScrollToTop = size < prevSize;
     if (!shouldScrollToTop) return;
-    tableWrapperRef.current?.scrollTo({ behavior: "smooth", top: 0 });
+    scrollToTableTop();
   };
+
+  const scrollToTableTop = () =>
+    tableWrapperRef.current?.scrollTo({ behavior: "smooth", top: 0 });
+  const navigationWrapper = useCallback(
+    (func: () => void | ((index: number) => void)) => {
+      return () => {
+        func();
+        scrollToTableTop();
+      };
+    },
+    []
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -139,11 +155,14 @@ const CustomTable: React.FC<CustomTableProps> = ({ data }) => {
             nextDisabled={!table.getCanNextPage()}
             prevDisabled={!table.getCanPreviousPage()}
             navigation={{
-              goToFirstPage: table.firstPage,
-              goToLastPage: table.lastPage,
-              goToNextPage: table.nextPage,
-              gotToPreviousPage: table.previousPage,
-              goToPage: table.setPageIndex,
+              goToFirstPage: navigationWrapper(table.firstPage),
+              goToLastPage: navigationWrapper(table.lastPage),
+              goToNextPage: navigationWrapper(table.nextPage),
+              gotToPreviousPage: navigationWrapper(table.previousPage),
+              goToPage: (i) => {
+                scrollToTableTop();
+                table.setPageIndex(i);
+              },
             }}
           />
         </div>

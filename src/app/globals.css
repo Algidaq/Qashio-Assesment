@@ -39,7 +39,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
   border: 1px solid transparent;
-  background-color: var(--primary);
+  background-color: #728097;
   border-radius: 2px;
 }
 
