@@ -1,12 +1,14 @@
 "use client";
 import React, { useState } from "react";
 
+// components
+import { Countdown } from "@/components";
+
 // Types
 import { HeaderPropsTypes } from "./types";
 
 // styles
 import styles from "./Header.module.css";
-import Countdown from "../Countdown/Countdown";
 
 const Header: React.FC<HeaderPropsTypes> = ({
   currentBalance,

@@ -8,6 +8,7 @@
   padding: 3.125rem;
   padding-top: 8.5rem;
   padding-left: 2.313rem;
+  overflow-y: scroll;
 }
 
 .sidebarWrapper {

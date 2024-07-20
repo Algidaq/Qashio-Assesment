@@ -1,9 +1,7 @@
 import React from "react";
 
 // Components
-import Header from "@/components/Header/Header";
-import FilterSection from "@/components/FilterSection/FilterSection";
-import Table from "@/components/Table/Table";
+import { Header, FilterSection, Table } from "./_components";
 
 // Data
 import { TableData } from "@/data/TableData";

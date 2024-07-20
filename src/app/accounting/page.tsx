@@ -3,8 +3,8 @@ import React from "react";
 // Components
 import MainText from "@/components/MainText/MainText";
 
-const NeedsReview = () => {
-  return <MainText title="Needs Review" />;
+const Accounting = () => {
+  return <MainText title="Accounting" />;
 };
 
-export default NeedsReview;
+export default Accounting;

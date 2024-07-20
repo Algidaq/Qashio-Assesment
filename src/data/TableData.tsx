@@ -1,72 +1,451 @@
 export const TableData = [
-  { id: 1, date: "2023-01-01", receiptStatus: false, amount: "1000" },
-  { id: 2, date: "2023-01-02", receiptStatus: true, amount: "2000" },
-  { id: 3, date: "2023-01-03", receiptStatus: false, amount: "1500" },
-  { id: 4, date: "2023-01-04", receiptStatus: true, amount: "2200" },
-  { id: 5, date: "2023-01-05", receiptStatus: false, amount: "1800" },
-  { id: 6, date: "2023-01-06", receiptStatus: true, amount: "1700" },
-  { id: 7, date: "2023-01-07", receiptStatus: false, amount: "1900" },
-  { id: 8, date: "2023-01-08", receiptStatus: false, amount: "2500" },
-  { id: 9, date: "2023-01-09", receiptStatus: true, amount: "2100" },
-  { id: 10, date: "2023-01-10", receiptStatus: false, amount: "2300" },
-  { id: 11, date: "2023-01-11", receiptStatus: false, amount: "1400" },
-  { id: 12, date: "2023-01-12", receiptStatus: true, amount: "1600" },
-  { id: 13, date: "2023-01-13", receiptStatus: false, amount: "2000" },
-  { id: 14, date: "2023-01-14", receiptStatus: false, amount: "1800" },
-  { id: 15, date: "2023-01-15", receiptStatus: true, amount: "1700" },
-  { id: 16, date: "2023-01-16", receiptStatus: false, amount: "1900" },
-  { id: 17, date: "2023-01-17", receiptStatus: true, amount: "2100" },
-  { id: 18, date: "2023-01-18", receiptStatus: false, amount: "2200" },
-  { id: 19, date: "2023-01-19", receiptStatus: false, amount: "2300" },
-  { id: 20, date: "2023-01-20", receiptStatus: true, amount: "2400" },
-  { id: 21, date: "2023-01-21", receiptStatus: false, amount: "2500" },
-  { id: 22, date: "2023-01-22", receiptStatus: true, amount: "2600" },
-  { id: 23, date: "2023-01-23", receiptStatus: false, amount: "2700" },
-  { id: 24, date: "2023-01-24", receiptStatus: true, amount: "2800" },
-  { id: 25, date: "2023-01-25", receiptStatus: false, amount: "2900" },
-  { id: 26, date: "2023-01-26", receiptStatus: false, amount: "3000" },
-  { id: 27, date: "2023-01-27", receiptStatus: false, amount: "3100" },
-  { id: 28, date: "2023-01-28", receiptStatus: true, amount: "3200" },
-  { id: 29, date: "2023-01-29", receiptStatus: false, amount: "3300" },
-  { id: 30, date: "2023-01-30", receiptStatus: false, amount: "3400" },
-  { id: 31, date: "2023-01-31", receiptStatus: true, amount: "3500" },
-  { id: 32, date: "2023-02-01", receiptStatus: false, amount: "3600" },
-  { id: 33, date: "2023-02-02", receiptStatus: false, amount: "3700" },
-  { id: 34, date: "2023-02-03", receiptStatus: false, amount: "3800" },
-  { id: 35, date: "2023-02-04", receiptStatus: true, amount: "3900" },
-  { id: 36, date: "2023-02-05", receiptStatus: false, amount: "4000" },
-  { id: 37, date: "2023-02-06", receiptStatus: true, amount: "4100" },
-  { id: 38, date: "2023-02-07", receiptStatus: false, amount: "4200" },
-  { id: 39, date: "2023-02-08", receiptStatus: false, amount: "4300" },
-  { id: 40, date: "2023-02-09", receiptStatus: true, amount: "4400" },
-  { id: 41, date: "2023-02-10", receiptStatus: false, amount: "4500" },
-  { id: 42, date: "2023-02-11", receiptStatus: true, amount: "4600" },
-  { id: 43, date: "2023-02-12", receiptStatus: false, amount: "4700" },
-  { id: 44, date: "2023-02-13", receiptStatus: true, amount: "4800" },
-  { id: 45, date: "2023-02-14", receiptStatus: false, amount: "4900" },
-  { id: 46, date: "2023-02-15", receiptStatus: false, amount: "5000" },
-  { id: 47, date: "2023-02-16", receiptStatus: true, amount: "5100" },
-  { id: 48, date: "2023-02-17", receiptStatus: false, amount: "5200" },
-  { id: 49, date: "2023-02-18", receiptStatus: true, amount: "5300" },
-  { id: 50, date: "2023-02-19", receiptStatus: true, amount: "5400" },
-  { id: 51, date: "2023-02-20", receiptStatus: false, amount: "5500" },
-  { id: 52, date: "2023-02-21", receiptStatus: false, amount: "5600" },
-  { id: 53, date: "2023-02-22", receiptStatus: false, amount: "5700" },
-  { id: 54, date: "2023-02-23", receiptStatus: true, amount: "5800" },
-  { id: 55, date: "2023-02-24", receiptStatus: false, amount: "5900" },
-  { id: 56, date: "2023-02-25", receiptStatus: false, amount: "6000" },
-  { id: 57, date: "2023-02-26", receiptStatus: true, amount: "6100" },
-  { id: 58, date: "2023-02-27", receiptStatus: false, amount: "6200" },
-  { id: 59, date: "2023-02-28", receiptStatus: false, amount: "6300" },
-  { id: 60, date: "2023-03-01", receiptStatus: true, amount: "6400" },
-  { id: 61, date: "2023-03-02", receiptStatus: false, amount: "6500" },
-  { id: 62, date: "2023-03-03", receiptStatus: false, amount: "6600" },
-  { id: 63, date: "2023-03-04", receiptStatus: true, amount: "6700" },
-  { id: 64, date: "2023-03-05", receiptStatus: false, amount: "6800" },
-  { id: 65, date: "2023-03-06", receiptStatus: false, amount: "6900" },
-  { id: 66, date: "2023-03-07", receiptStatus: true, amount: "7000" },
-  { id: 67, date: "2023-03-08", receiptStatus: false, amount: "7100" },
-  { id: 68, date: "2023-03-09", receiptStatus: true, amount: "7200" },
-  { id: 69, date: "2023-03-10", receiptStatus: false, amount: "7300" },
-  { id: 70, date: "2023-03-11", receiptStatus: false, amount: "7400" },
+  {
+    id: 0,
+    company: {
+      name: "Salesforce",
+      category: "Finance",
+      logo: "https://logo.clearbit.com/salesforce.com",
+    },
+    buyer: {
+      name: "Daniel Thomas",
+    },
+    transaction: {
+      amount: 269.42,
+      status: "pending",
+    },
+  },
+  {
+    id: 1,
+    company: {
+      name: "Adobe",
+      category: "General Merchandise",
+      logo: "https://logo.clearbit.com/adobe.com",
+    },
+    buyer: {
+      name: "Jennifer Gomez",
+    },
+    transaction: {
+      date: "1971-02-14",
+      amount: 372.71,
+      status: "completed",
+    },
+  },
+  {
+    id: 2,
+    company: {
+      name: "Tesla",
+      category: "Fashion",
+      logo: "https://logo.clearbit.com/tesla.com",
+    },
+    buyer: {
+      name: "Todd Lawrence",
+    },
+    transaction: {
+      amount: 810.06,
+      status: "pending",
+    },
+  },
+  {
+    id: 3,
+    company: {
+      name: "Microsoft",
+      category: "SaaS/Software",
+      logo: "https://logo.clearbit.com/microsoft.com",
+    },
+    buyer: {
+      name: "Mr. Jeffery Austin",
+    },
+    transaction: {
+      date: "2010-04-20",
+      amount: 171.94,
+      status: "completed",
+    },
+  },
+  {
+    id: 4,
+    company: {
+      name: "Google G Suite",
+      category: "Food & Beverage",
+      logo: "https://logo.clearbit.com/google.com",
+    },
+    buyer: {
+      name: "Maxwell Frank",
+    },
+    transaction: {
+      amount: 194.01,
+      status: "pending",
+    },
+  },
+  {
+    id: 5,
+    company: {
+      name: "Amazon",
+      category: "Finance",
+      logo: "https://logo.clearbit.com/amazon.com",
+    },
+    buyer: {
+      name: "Leslie Garrison",
+    },
+    transaction: {
+      date: "2006-12-12",
+      amount: 851.12,
+      status: "completed",
+    },
+  },
+  {
+    id: 6,
+    company: {
+      name: "Facebook",
+      category: "General Merchandise",
+      logo: "https://logo.clearbit.com/facebook.com",
+    },
+    buyer: {
+      name: "Karen Peters MD",
+    },
+    transaction: {
+      amount: 298.02,
+      status: "pending",
+    },
+  },
+  {
+    id: 7,
+    company: {
+      name: "Spotify",
+      category: "Automotive",
+      logo: "https://logo.clearbit.com/spotify.com",
+    },
+    buyer: {
+      name: "Jonathan Foster Jr.",
+    },
+    transaction: {
+      date: "2010-03-31",
+      amount: 326.8,
+      status: "completed",
+    },
+  },
+  {
+    id: 8,
+    company: {
+      name: "Tesla",
+      category: "SaaS/Software",
+      logo: "https://logo.clearbit.com/tesla.com",
+    },
+    buyer: {
+      name: "Pamela Howell",
+    },
+    transaction: {
+      amount: 805.01,
+      status: "pending",
+    },
+  },
+  {
+    id: 9,
+    company: {
+      name: "Apple",
+      category: "General Merchandise",
+      logo: "https://logo.clearbit.com/apple.com",
+    },
+    buyer: {
+      name: "Bailey Espinoza",
+    },
+    transaction: {
+      date: "1974-06-27",
+      amount: 756.58,
+      status: "completed",
+    },
+  },
+  {
+    id: 10,
+    company: {
+      name: "Google G Suite",
+      category: "Fashion",
+      logo: "https://logo.clearbit.com/google.com",
+    },
+    buyer: {
+      name: "Jennifer Torres",
+    },
+    transaction: {
+      amount: 188.29,
+      status: "pending",
+    },
+  },
+  {
+    id: 11,
+    company: {
+      name: "Google G Suite",
+      category: "SaaS/Software",
+      logo: "https://logo.clearbit.com/google.com",
+    },
+    buyer: {
+      name: "Timothy Manning",
+    },
+    transaction: {
+      date: "2024-02-10",
+      amount: 51.67,
+      status: "completed",
+    },
+  },
+  {
+    id: 12,
+    company: {
+      name: "Salesforce",
+      category: "Entertainment",
+      logo: "https://logo.clearbit.com/salesforce.com",
+    },
+    buyer: {
+      name: "Brian Martinez",
+    },
+    transaction: {
+      amount: 239.63,
+      status: "pending",
+    },
+  },
+  {
+    id: 13,
+    company: {
+      name: "Facebook",
+      category: "Travel",
+      logo: "https://logo.clearbit.com/facebook.com",
+    },
+    buyer: {
+      name: "Donald Butler",
+    },
+    transaction: {
+      date: "1975-01-27",
+      amount: 175.08,
+      status: "completed",
+    },
+  },
+  {
+    id: 14,
+    company: {
+      name: "Amazon",
+      category: "Fashion",
+      logo: "https://logo.clearbit.com/amazon.com",
+    },
+    buyer: {
+      name: "Mark Davidson",
+    },
+    transaction: {
+      amount: 260.33,
+      status: "pending",
+    },
+  },
+  {
+    id: 15,
+    company: {
+      name: "Apple",
+      category: "Automotive",
+      logo: "https://logo.clearbit.com/apple.com",
+    },
+    buyer: {
+      name: "Timothy Nunez",
+    },
+    transaction: {
+      date: "2004-09-20",
+      amount: 439.21,
+      status: "completed",
+    },
+  },
+  {
+    id: 16,
+    company: {
+      name: "Microsoft",
+      category: "Electronics",
+      logo: "https://logo.clearbit.com/microsoft.com",
+    },
+    buyer: {
+      name: "Denise Garcia",
+    },
+    transaction: {
+      amount: 916.45,
+      status: "pending",
+    },
+  },
+  {
+    id: 17,
+    company: {
+      name: "Tesla",
+      category: "Finance",
+      logo: "https://logo.clearbit.com/tesla.com",
+    },
+    buyer: {
+      name: "Carol Lopez",
+    },
+    transaction: {
+      date: "2007-01-04",
+      amount: 443.21,
+      status: "completed",
+    },
+  },
+  {
+    id: 18,
+    company: {
+      name: "Apple",
+      category: "Healthcare",
+      logo: "https://logo.clearbit.com/apple.com",
+    },
+    buyer: {
+      name: "Lynn Wiggins",
+    },
+    transaction: {
+      amount: 155.71,
+      status: "pending",
+    },
+  },
+  {
+    id: 19,
+    company: {
+      name: "Netflix",
+      category: "Entertainment",
+      logo: "https://logo.clearbit.com/netflix.com",
+    },
+    buyer: {
+      name: "George King",
+    },
+    transaction: {
+      date: "2005-05-17",
+      amount: 106.24,
+      status: "completed",
+    },
+  },
+  {
+    id: 20,
+    company: {
+      name: "Adobe",
+      category: "Automotive",
+      logo: "https://logo.clearbit.com/adobe.com",
+    },
+    buyer: {
+      name: "Larry Howard",
+    },
+    transaction: {
+      amount: 99.78,
+      status: "pending",
+    },
+  },
+  {
+    id: 21,
+    company: {
+      name: "Google G Suite",
+      category: "SaaS/Software",
+      logo: "https://logo.clearbit.com/google.com",
+    },
+    buyer: {
+      name: "Amy Potter",
+    },
+    transaction: {
+      date: "1985-12-23",
+      amount: 604.01,
+      status: "completed",
+    },
+  },
+  {
+    id: 22,
+    company: {
+      name: "Amazon",
+      category: "Fashion",
+      logo: "https://logo.clearbit.com/amazon.com",
+    },
+    buyer: {
+      name: "James Rowe",
+    },
+    transaction: {
+      amount: 538.97,
+      status: "pending",
+    },
+  },
+  {
+    id: 23,
+    company: {
+      name: "Spotify",
+      category: "Healthcare",
+      logo: "https://logo.clearbit.com/spotify.com",
+    },
+    buyer: {
+      name: "Jessica Logan",
+    },
+    transaction: {
+      date: "2012-06-11",
+      amount: 137.95,
+      status: "completed",
+    },
+  },
+  {
+    id: 24,
+    company: {
+      name: "Google G Suite",
+      category: "Electronics",
+      logo: "https://logo.clearbit.com/google.com",
+    },
+    buyer: {
+      name: "Sherry Gray",
+    },
+    transaction: {
+      amount: 140.88,
+      status: "pending",
+    },
+  },
+  {
+    id: 25,
+    company: {
+      name: "Apple",
+      category: "Food & Beverage",
+      logo: "https://logo.clearbit.com/apple.com",
+    },
+    buyer: {
+      name: "Angela Davis",
+    },
+    transaction: {
+      date: "1999-09-08",
+      amount: 38.93,
+      status: "completed",
+    },
+  },
+  {
+    id: 26,
+    company: {
+      name: "Netflix",
+      category: "Healthcare",
+      logo: "https://logo.clearbit.com/netflix.com",
+    },
+    buyer: {
+      name: "Stephanie Morales",
+    },
+    transaction: {
+      amount: 169.72,
+      status: "pending",
+    },
+  },
+  {
+    id: 27,
+    company: {
+      name: "Salesforce",
+      category: "Travel",
+      logo: "https://logo.clearbit.com/salesforce.com",
+    },
+    buyer: {
+      name: "Evelyn Miller",
+    },
+    transaction: {
+      date: "1971-07-25",
+      amount: 372.3,
+      status: "completed",
+    },
+  },
+  {
+    id: 28,
+    company: {
+      name: "Adobe",
+      category: "General Merchandise",
+      logo: "https://logo.clearbit.com/adobe.com",
+    },
+    buyer: {
+      name: "Jennifer Gomez",
+    },
+    transaction: {
+      amount: 372.71,
+      status: "pending",
+    },
+  },
 ];

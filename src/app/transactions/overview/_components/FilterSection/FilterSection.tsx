@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 
 // Components
-import Countdown from "../Countdown/Countdown";
+
 import DatePicker from "react-datepicker";
-import { exportToExcel } from "react-json-to-excel";
+import { Countdown } from "@/components";
 
 // Types
 import { CardProps } from "./types";
@@ -15,13 +15,14 @@ import { TableData } from "@/data/TableData";
 // Icons
 import { HiOutlineDownload } from "react-icons/hi";
 import { CiSearch, CiDollar } from "react-icons/ci";
-import { MdOutlineDateRange } from "react-icons/md";
+import { MdClear, MdOutlineDateRange } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import { MdOutlineOpenInFull } from "react-icons/md";
 
 // styles
 import styles from "./FilterSection.module.css";
 import "react-datepicker/dist/react-datepicker.css";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const arrayCard: CardProps[] = [
   {
@@ -46,6 +47,19 @@ const arrayCard: CardProps[] = [
 
 const FilterSection = () => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const searchDefault = useSearchParams().get("search");
+  const [search, setSearch] = useState(searchDefault ?? "");
+
+  const handleOnSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      updateUrlQueryParams(search);
+    }
+  };
+
+  const handleOnClearSearch = () => {
+    setSearch("");
+    updateUrlQueryParams("");
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -57,7 +71,13 @@ const FilterSection = () => {
               type="text"
               className={styles.searchInput}
               placeholder="Search & Filter"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              onKeyDown={handleOnSearch}
             />
+            {search.length > 0 && (
+              <MdClear className={styles.icon} onClick={handleOnClearSearch} />
+            )}
           </div>
           <div className={styles.dateWrapper}>
             <div className={styles.datePickerWrapper}>
@@ -81,9 +101,9 @@ const FilterSection = () => {
         </div>
         <div
           className={styles.downloadButton}
-          onClick={() => {
-            exportToExcel(TableData, "table-data");
-          }}
+          // onClick={() => {
+          //   exportToExcel(TableData, "table-data");
+          // }}
         >
           <HiOutlineDownload className={styles.icon} />
         </div>
@@ -125,6 +145,12 @@ const Card: React.FC<CardProps> = ({
       />
     </div>
   );
+};
+
+const updateUrlQueryParams = (search: string) => {
+  const query = new URLSearchParams({ search: search });
+
+  window.history.pushState(null, "", `?${query.toString()}`);
 };
 
 export default FilterSection;

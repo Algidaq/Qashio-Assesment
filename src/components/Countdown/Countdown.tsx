@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 // Types
-import { CountdownProps } from "./types";
+import type { CountdownProps } from "./types";
 
 const Countdown: React.FC<CountdownProps> = ({
   className,

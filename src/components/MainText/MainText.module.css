@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  font-size: 6vw;
+  font-weight: 600;
+  background: linear-gradient(
+    45deg,
+    #ef3d25,
+    #f54f39,
+    #ff7d6c,
+    #f85f4a,
+    #ff998b,
+    #ff7d6c,
+    #f54f39,
+    #ef3d25
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

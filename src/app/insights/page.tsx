@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+
+// Components
+import MainText from "@/components/MainText/MainText";
 
 const Insights = () => {
-  return (
-    <div>Insights</div>
-  )
-}
+  return <MainText title="Insights" />;
+};
 
-export default Insights
+export default Insights;
