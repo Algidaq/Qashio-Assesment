@@ -5,6 +5,7 @@
 First, run the application development server:
 
 ```bash
+npm i
 npm run dev
 
 ```
@@ -12,6 +13,7 @@ npm run dev
 Second, to run application on production:
 
 ```bash
+npm i
 npm run build
 npm run start
 
