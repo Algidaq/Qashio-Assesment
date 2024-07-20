@@ -18,6 +18,7 @@ import { CustomTableProps, Receipt } from "./types";
 
 // Icons
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { TbMoodEmpty } from "react-icons/tb";
 
 // styles
 import styles from "./ReceiptTable.module.css";
@@ -119,7 +120,11 @@ const CustomTable: React.FC<CustomTableProps> = ({ data }) => {
   return (
     <div className={styles.wrapper}>
       <div ref={tableWrapperRef} className={styles.tableWrapper}>
-        <AppTable table={table} className={styles.table} />
+        <AppTable
+          table={table}
+          className={styles.table}
+          EmptyElement={<EmptyElement search={search} />}
+        />
       </div>
       <div>
         <div className={styles.tableFooterWrapper}>
@@ -143,6 +148,18 @@ const CustomTable: React.FC<CustomTableProps> = ({ data }) => {
           />
         </div>
       </div>
+    </div>
+  );
+};
+
+const EmptyElement: React.FC<{ search: string | null }> = ({ search }) => {
+  return (
+    <div className={styles.emptyWrapper}>
+      <TbMoodEmpty size={64} />
+      <p>
+        No Results Found {search && search.length > 3 && `for keyword`}{" "}
+        <strong>{search && search.length > 3 && `${search}`}</strong>
+      </p>
     </div>
   );
 };

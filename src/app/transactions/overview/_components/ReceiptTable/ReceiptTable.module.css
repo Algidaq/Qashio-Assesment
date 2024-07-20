@@ -84,3 +84,12 @@
   height: 100%;
   padding-inline: 2rem;
 }
+
+.emptyWrapper {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

@@ -42,6 +42,7 @@ export const TablePagination: React.FC<TablePaginationProps> = ({
           value={pageSize}
           onChange={handleOnChangePageSize}
           className={styles.selectStyle}
+          disabled={filteredRowsCount < 1}
         >
           {[10, 15, 25].map((pageSizeOption) => (
             <option key={pageSizeOption} value={pageSizeOption}>
