@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import { Header, FilterSection, Table } from "./_components";
+import { Header, FilterSection, ReceiptTable } from "./_components";
 
 // Data
 import { TableData } from "@/data/TableData";
@@ -15,7 +15,6 @@ const HeaderData = {
 };
 
 const Overview = () => {
-  // console.log(HeaderData.calculateProgressBarPercentage());
   return (
     <>
       <Header
@@ -26,7 +25,7 @@ const Overview = () => {
 
       <FilterSection />
 
-      <Table data={TableData} />
+      <ReceiptTable data={TableData} />
     </>
   );
 };

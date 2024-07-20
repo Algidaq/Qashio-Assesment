@@ -1,0 +1,86 @@
+.wrapper {
+  width: 100%;
+  overflow: scroll;
+  padding-inline: 30px;
+}
+
+.tableWrapper {
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 14px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead {
+  background-color: #f6f6f4;
+  padding: 1.75rem;
+  position: sticky;
+  top: 0;
+}
+.table thead tr {
+  border-right: 14px;
+}
+
+.table thead tr th {
+  padding-inline-start: 1.75rem;
+  height: 4.25rem;
+  text-align: start;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #707e93;
+}
+.table tr td {
+  border: 1px solid #f4f4f4;
+  border-bottom: 0px;
+}
+.table tfoot {
+  height: 100px;
+}
+
+.tableFooterWrapper {
+  background-color: #f6f6f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0px;
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
+  padding-inline: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .tableFooterWrapper {
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: start;
+  }
+}
+
+.receiptAmountWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 2rem;
+}
+
+.receiptAmountWrapper p:first-child {
+  font-size: 0.875rem;
+}
+
+.receiptAmountWrapper p:last-child {
+  font-size: 0.75rem;
+  color: #78869a;
+}
+
+.receiptStatusWrapper {
+  width: 100%;
+  height: 100%;
+  padding-inline: 2rem;
+}

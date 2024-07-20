@@ -1,3 +1,3 @@
-export * from "./Table";
+export * from "./ReceiptTable";
 export * from "./FilterSection";
 export * from "./Header";
